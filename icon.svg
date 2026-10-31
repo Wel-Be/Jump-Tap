@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
-  <rect width="192" height="192" fill="#101010"/>
-  <rect x="27" y="27" width="138" height="138" fill="#71330e"/>
-  <rect x="20" y="20" width="138" height="138" fill="#f4a51c"/>
-  <rect x="20" y="20" width="138" height="13" fill="#ffdc55"/>
-  <rect x="20" y="33" width="13" height="112" fill="#ffdc55"/>
-  <rect x="33" y="33" width="112" height="112" fill="#f9bd2c"/>
-  <path d="M64 57h45v12H64z M109 69h12v25h-12z M84 94h25v12H84z M72 106h12v24H72z M72 130h14v12H72z" fill="#fff0a0"/>
-  <rect x="145" y="20" width="13" height="138" fill="#a64b10"/>
-  <rect x="20" y="145" width="138" height="13" fill="#a64b10"/>
+  <rect width="192" height="192" fill="#87ceeb"/>
+  <rect x="36" y="31" width="120" height="120" rx="1" fill="#71330e"/>
+  <rect x="29" y="24" width="120" height="120" fill="#f4a51c"/>
+  <rect x="29" y="24" width="120" height="12" fill="#ffdc55"/>
+  <rect x="29" y="36" width="12" height="96" fill="#ffdc55"/>
+  <rect x="41" y="36" width="96" height="96" fill="#f9bd2c"/>
+  <path d="M63 53h37v10H63z M100 63h10v20h-10z M80 83h20v10H80z M70 93h10v20H70z M70 113h12v10H70z" fill="#fff0a0"/>
+  <rect x="137" y="24" width="12" height="120" fill="#a64b10"/>
+  <rect x="29" y="132" width="120" height="12" fill="#a64b10"/>
 </svg>
