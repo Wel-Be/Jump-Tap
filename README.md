@@ -6,8 +6,8 @@ Jump&Tapは、タップすると気持ちの良い効果音が鳴るスマート
 - `index.html` — アプリ画面
 - `style.css` — 空色の背景とレイアウト
 - `app.js` — タップ動作、音声再生、音量調整
-- `question-block.png` — 提供画像から切り出したハテナブロック
-- `coin-pickup-3.mp3` — 指定された効果音
+- `question-block.png` — ブロック
+- `coin-pickup-3.mp3` — 効果音
 - `manifest.json` — ホーム画面追加用設定
 - `service-worker.js` — オフライン用キャッシュ
 - `icon.svg` — アプリアイコン
