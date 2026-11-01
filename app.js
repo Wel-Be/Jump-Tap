@@ -1,63 +1,7 @@
-(() => {
-  "use strict";
-  const block = document.getElementById("questionBlock");
-  const volume = document.getElementById("volume");
-  const volumeValue = document.getElementById("volumeValue");
-  const audioError = document.getElementById("audioError");
-
-  // 音量は起動ごとに30%へ戻す。設定値は保存しない。
-  volume.value = "30";
-  const soundPath = "./coin-pickup-3.mp3";
-  let animationTimer = null;
-
-  function updateVolumeLabel() {
-    volumeValue.value = `${volume.value}%`;
-    volumeValue.textContent = `${volume.value}%`;
-  }
-  updateVolumeLabel();
-  volume.addEventListener("input", updateVolumeLabel);
-
-  function animateBlock() {
-    block.classList.add("is-pressed");
-    if (animationTimer) window.clearTimeout(animationTimer);
-    animationTimer = window.setTimeout(() => {
-      block.classList.remove("is-pressed");
-      animationTimer = null;
-    }, 100);
-  }
-
-  // 音声ファイルを毎回複製することで、連続タップ時に音を重ねて再生できる。
-  block.addEventListener("click", async () => {
-    animateBlock();
-    audioError.hidden = true;
-    try {
-      const audio = new Audio(soundPath);
-      audio.preload = "auto";
-      audio.volume = Math.max(0, Math.min(1, Number(volume.value) / 100));
-      audio.currentTime = 0;
-      const cleanup = () => {
-        audio.removeEventListener("ended", cleanup);
-        audio.removeEventListener("error", showError);
-        audio.src = "";
-      };
-      const showError = () => {
-        audioError.hidden = false;
-        cleanup();
-      };
-      audio.addEventListener("ended", cleanup, { once: true });
-      audio.addEventListener("error", showError, { once: true });
-      await audio.play();
-    } catch (error) {
-      console.warn("効果音を再生できませんでした。", error);
-      audioError.hidden = false;
-    }
-  });
-
-  if ("serviceWorker" in navigator && (location.protocol === "https:" || location.hostname === "localhost")) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./service-worker.js").catch(error => {
-        console.warn("オフライン用キャッシュを登録できませんでした。", error);
-      });
-    });
-  }
+(()=>{"use strict";const block=document.getElementById("questionBlock"),countEl=document.getElementById("tapCount"),volume=document.getElementById("volume"),bonus=document.getElementById("bonus"),error=document.getElementById("error");let count=0,timer=null;const coin="./coin-pickup-3.mp3",life="./extra-life-3.mp3";
+function play(src){const a=new Audio(src);a.preload="auto";a.volume=Math.max(0,Math.min(1,+volume.value/100));a.play().catch(()=>error.hidden=false);a.addEventListener("ended",()=>{a.src=""},{once:true})}
+function press(){block.classList.add("is-pressed");clearTimeout(timer);timer=setTimeout(()=>block.classList.remove("is-pressed"),100)}
+function showBonus(){bonus.hidden=false;play(life);setTimeout(()=>bonus.hidden=true,900)}
+block.addEventListener("click",()=>{press();count++;countEl.textContent=count;if(count===100)showBonus();else play(coin)});
+if("serviceWorker"in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))addEventListener("load",()=>navigator.serviceWorker.register("./service-worker.js").catch(console.warn));
 })();

@@ -1,15 +1,1 @@
-{
-  "id": "./",
-  "name": "Jump&Tap",
-  "short_name": "Jump&Tap",
-  "description": "ハテナブロックをタップしてコイン獲得音を楽しむミニWebアプリ",
-  "lang": "ja",
-  "start_url": "./",
-  "scope": "./",
-  "display": "standalone",
-  "background_color": "#87ceeb",
-  "theme_color": "#87ceeb",
-  "icons": [
-    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
-  ]
-}
+{"id":"./","name":"Jump&Tap","short_name":"Jump&Tap","lang":"ja","start_url":"./","scope":"./","display":"standalone","background_color":"#29a9e8","theme_color":"#29a9e8","icons":[{"src":"./icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}
